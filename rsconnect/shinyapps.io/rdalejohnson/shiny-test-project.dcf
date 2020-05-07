@@ -1,0 +1,10 @@
+name: shiny-test-project
+title:
+username:
+account: rdalejohnson
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 2262660
+bundleId: 3117980
+url: https://rdalejohnson.shinyapps.io/shiny-test-project/
+when: 1588886089.94732
