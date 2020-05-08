@@ -25,9 +25,9 @@ ui <- fluidPage(
     mainPanel(
       tabsetPanel(
         id = 'dataset',
-       # tabPanel("diamonds", DT::dataTableOutput("mytable1")),
-        tabPanel("COVID Concept Explorer", DT::dataTableOutput("mytable2"))
-       # tabPanel("iris", DT::dataTableOutput("mytable3"))
+        tabPanel("diamonds", DT::dataTableOutput("mytable1")),
+        tabPanel("COVID Concept Explorer", DT::dataTableOutput("mytable2")),
+        tabPanel("iris", DT::dataTableOutput("mytable3"))
       )
     )
   )
@@ -44,8 +44,11 @@ server <- function(input, output) {
   #   DT::datatable(diamonds2[, input$show_vars, drop = FALSE])
   # })
 
+  #data <- read.table("Sales.zip", nrows=10, header=T, quote="\"", sep=",")
+
   # sorted columns are colored now because CSS are attached to them
-  testingz <- read.csv(file = "all_covid_concepts.csv")
+  #testingz <- read.table(file = "all_covid_concepts.zip", header=T,  sep=",")
+  testingz <- read.table(unz("all_covid_concepts.zip", "all_covid_concepts.csv"),  header=T, quote="\"", sep=",")
   output$mytable2 <- DT::renderDataTable({
     DT::datatable(testingz, options = list(orderClasses = TRUE))
    # DT::datatable(testingz[, input$show_vars, drop = FALSE])
